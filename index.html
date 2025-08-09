@@ -1,11 +1,123 @@
 <html>
-    <head>
-        <title>
-            Evolve Clone
-        </title>
-    </head>
 
-    <body>
-        <h1>Evolve Clone is live!</h1>
-    </body>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="/style/light.css" rel="stylesheet" type="text/css">
+    <title>
+        Evolve Clone
+    </title>
+</head>
+
+<body>
+    <div class="container-fluid min-vh-100 d-flex flex-column overflow-hidden" id="gameWrapper">
+        <div class="row" id="messagesWrapper">
+            <div class="col-sm-12 border" id="messagesInnerWrapper">
+                <div>Messages</div>
+            </div>
+        </div>
+        <div class="row flex-grow-1" id="mainWrapper">
+            <div class="col-12 col-md-2 border bg-light" id="resourcWorkerWrapper">
+                <div>
+                    <table class="table table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th>Resource</th>
+                                <th>Owned</th>
+                                <th>Max</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="resourceTableBody">
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div>
+                    <table class="table table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th colspan="4" class="text-center">Workers</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="workerTableBody">
+                            <tr>
+                                <td>Unemployed</td>
+                                <td></td>
+                                <td id="unemployedOwned">0</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Farmer</td>
+                                <td><button onclick="fireWorker('farmer')">&lt;</button></td>
+                                <td id="farmerOwned">0</td>
+                                <td><button onclick="hireWorker('farmer')">&gt;</button></td>
+                            </tr>
+                            <tr>
+                                <td>Logger</td>
+                                <td><button onclick="fireWorker('logger')">&lt;</button></td>
+                                <td id="loggerOwned">10000000</td>
+                                <td><button onclick="hireWorker('logger')">&gt;</button></td>
+                            </tr>
+                            <tr>
+                                <td>Miner</td>
+                                <td><button onclick="fireWorker('miner')">&lt;</button></td>
+                                <td id="minerOwned">0</td>
+                                <td><button onclick="hireWorker('miner')">&gt;</button></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="col-12 col-md-10 g-0 px-1 pt-1 border bg-light">
+                <!-- Begin The Outer Gates Zone -->
+                <div class="row area-row g-1" id="theOuterGatesZone">
+                    <div class="col-12">
+                        <div class="area-header text-center text-bold">
+                            <span>The Outer Gates</span>
+                        </div>
+                    </div>
+                    <div class="col text-center d-grid noselect theOuterGatesBuilding">
+                        <div class="button py-2 pointer" onclick="gatherResource('food')" id="gatherResourceFood">
+                            Gather Food
+                        </div>
+                    </div>
+                    <div class="col text-center d-grid noselect theOuterGatesBuilding">
+                        <div class="button py-2 pointer" onclick="gatherResource('wood')" id="gatherResourceWood">
+                            Gather Wood</div>
+                    </div>
+                    <div class="col text-center d-grid noselect theOuterGatesBuilding">
+                        <div class="button py-2 pointer" onclick="gatherResource('stone')" id="gatherResourceStone">
+                            Gather Stone
+                        </div>
+                    </div>
+                </div>
+                <!-- End The Outer Gates Zone -->
+
+                <!-- Begin The Villages Zone -->
+                <div class="row g-1 pb-1" id="theVillagesZone">
+                </div>
+                <!-- End The Villages Zone -->
+                <!-- Begin The Outpost Zone -->
+                <div class="row g-1 pb-1" id="theOutpostZone">
+                </div>
+                <!-- End The Outpost Zone -->
+
+
+            </div>
+        </div>
+    </div>
+    <script src="/main.js"></script>
+</body>
+
 </html>
